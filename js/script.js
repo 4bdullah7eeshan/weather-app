@@ -1,10 +1,10 @@
 //let city, temperature, weatherCondition, date, time, humidity, expectations, gif; 
 const baseUrl = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/';
-const userLocation = document.querySelector("#location").value.toLowerCase();
+//const userLocation = document.querySelector("#location").value.toLowerCase();
 const apiKey = '?key=JVADF28JJP4RBZB6GEU9W4MSZ';
 
 let url;
-url = baseUrl + userLocation + apiKey;
+
 
 const submitButton = document.querySelector("button");
 submitButton.addEventListener("click", displayWeatherData);
@@ -33,5 +33,19 @@ async function extractRequiredAppData () {
     return current;
 }
 
-//console.log(getApiWeatherData());
-console.log(extractRequiredAppData());
+
+async function displayWeatherData() {
+    const userLocation = document.querySelector("#location").value.toLowerCase();
+
+    url = baseUrl + userLocation + apiKey;
+    console.log(userLocation);
+    console.log(url);
+
+    const weatherDataDiv = document.querySelector(".weather");
+    let data = await extractRequiredAppData();
+    const c = document.createElement('p');
+    c.textContent = data.city;
+    console.log(data.city);
+    weatherDataDiv.appendChild(c);
+    
+}
