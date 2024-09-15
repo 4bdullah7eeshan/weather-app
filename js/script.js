@@ -1,6 +1,13 @@
 //let city, temperature, weatherCondition, date, time, humidity, expectations, gif; 
+const baseUrl = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/';
+const userLocation = document.querySelector("#location").value.toLowerCase();
+const apiKey = '?key=JVADF28JJP4RBZB6GEU9W4MSZ';
 
-url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/london?key=JVADF28JJP4RBZB6GEU9W4MSZ';
+let url;
+url = baseUrl + userLocation + apiKey;
+
+const submitButton = document.querySelector("button");
+submitButton.addEventListener("click", displayWeatherData);
 
 async function getApiWeatherData () {
     const response = await fetch(url, {mode: 'cors'});
