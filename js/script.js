@@ -7,7 +7,7 @@ let url;
 
 
 const submitButton = document.querySelector("button");
-submitButton.addEventListener("click", displayWeatherData);
+submitButton.addEventListener("submit", displayWeatherData);
 
 async function getApiWeatherData () {
     const response = await fetch(url, {mode: 'cors'});
