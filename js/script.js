@@ -7,10 +7,19 @@ const submitButton = document.querySelector("#user");
 submitButton.addEventListener("submit", displayWeatherData);
 
 async function getApiWeatherData () {
-    const response = await fetch(url, {mode: 'cors'});
-    const apiWeatherData = await response.json();
+    try {
+        const response = await fetch(url, {mode: 'cors'});
+        
+        if (!response.ok) {
+            throw new Error('City not found');
+        }
 
-    return apiWeatherData;
+        const apiWeatherData = await response.json();
+        return apiWeatherData;
+    } catch (error) {
+        throw new Error('No city found');
+    }
+
 }
 
 async function extractRequiredAppData () {
@@ -35,34 +44,37 @@ async function displayWeatherData(e) {
     const userLocation = document.querySelector("#city").value.toLowerCase();
 
     url = baseUrl + userLocation + apiKey;
-    console.log(userLocation);
-    console.log(url);
-
+   
     const weatherDataDiv = document.querySelector(".weather");
-    weatherDataDiv.innerHTML = '';
-    let data = await extractRequiredAppData();
-    
-    const cityElement = document.createElement('h2');
-    cityElement.textContent = data.city;
-    weatherDataDiv.appendChild(cityElement);
+    weatherDataDiv.innerHTML = ''; 
 
+    try {
+        let data = await extractRequiredAppData();
+        
+        const cityElement = document.createElement('h2');
+        cityElement.textContent = data.city;
+        weatherDataDiv.appendChild(cityElement);
 
-    const temperatureElement = document.createElement('h3');
-    temperatureElement.textContent = data.temperature + 'F';
-    weatherDataDiv.appendChild(temperatureElement);
+        const temperatureElement = document.createElement('h3');
+        temperatureElement.textContent = data.temperature + 'F';
+        weatherDataDiv.appendChild(temperatureElement);
 
+        const weatherConditionElement = document.createElement('p');
+        weatherConditionElement.textContent = data.weatherCondition;
+        weatherDataDiv.appendChild(weatherConditionElement);
 
-    const weatherConditionElement = document.createElement('p');
-    weatherConditionElement.textContent = data.weatherCondition;
-    weatherDataDiv.appendChild(weatherConditionElement);
+        const humidityElement = document.createElement('p');
+        humidityElement.textContent = 'Humidity: ' + data.humidity + '%';
+        weatherDataDiv.appendChild(humidityElement);
 
+        const expectationsElement = document.createElement('p');
+        expectationsElement.textContent = data.expectations;
+        weatherDataDiv.appendChild(expectationsElement);
 
-    const humidityElement = document.createElement('p');
-    humidityElement.textContent = 'Humidity: ' + data.humidity + '%';
-    weatherDataDiv.appendChild(humidityElement);
-
-    const expectationsElement = document.createElement('p');
-    expectationsElement.textContent = data.expectations;
-    weatherDataDiv.appendChild(expectationsElement);
+    } catch (error) {
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = 'No city found. Please try again.';
+        weatherDataDiv.appendChild(errorMessage);
+    }
     
 }
