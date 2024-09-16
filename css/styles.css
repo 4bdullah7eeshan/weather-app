@@ -1,20 +1,67 @@
 /* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Amatic SC', cursive;
+
 }
 
 body {
-    min-height: 100vh;
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     line-height: 1.5;
-    
 }
 
+aside {
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    /*background-image: url(https://cdn.pixabay.com/photo/2020/12/20/04/06/man-5846064_1280.jpg);*/
+    background-image: url(https://cdn.pixabay.com/photo/2022/08/07/20/28/night-7371349_1280.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+}
+
+form {
+    margin-top: 1rem;
+    flex: 1;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    /*justify-content: center;
+    align-items: center;*/
+    gap: 1rem;
+}
+
+#city {
+    height: 2rem;
+    width: 15rem;
+}
+
+#city:hover {
+    background-color: black;
+    color: white;
+    outline: 1px solid white;
+}
+
+form button {
+    height: 2rem;
+    width: 2rem;
+}
+
+#get-city:hover {
+    background-color: black;
+    color: white;
+    outline: 1px solid white;
+}
 
 header {
     display: flex;
@@ -22,36 +69,69 @@ header {
     align-items: center;
     text-align: center;
     padding: 0.5rem;
-    outline: 1px solid black; /* Change it as needed */
 }
 
 .weather {
-    outline: 1px solid black;
     height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
     align-items: center;
     text-align: center;
+    gap: 0.5rem;
+    color: white;
     padding: 2rem;
+    background-color: black;
+    outline: 2px solid #848484;
+}
+
+.weather:hover {
+    background-color: #1c1c1c;
+    color: white;
 }
 
 main {
-    flex-grow: 1;
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5rem;
     align-items: center;
+    width: 50vw;
+    height: 100vh;
+    
+    color: white;
+    background-color: black;
+    outline: 1px solid white;
+    
+
 }
 
+input {
+    font-size: 1.5rem;
+}
 footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
-    outline: 1px solid black; /* Change it as needed */
+    font-size: 1.3rem;
+}
+
+.fab, .fa-github {
+    color: white;
+}
+
+#temperature {
+    font-size: 3.5rem;
+}
+
+main p {
+    font-size: 1.5rem;
+}
+
+h1 {
+    font-size: 3rem;
+
 }

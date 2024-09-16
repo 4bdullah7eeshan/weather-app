@@ -39,9 +39,13 @@ async function extractRequiredAppData () {
 
 
 async function displayWeatherData(e) {
-    e.preventDefault();
+    e?.preventDefault();
 
-    const userLocation = document.querySelector("#city").value.toLowerCase();
+    let userLocation = document.querySelector("#city").value.toLowerCase();
+
+    if (!userLocation) {
+        userLocation = "new york";
+    }
 
     url = baseUrl + userLocation + apiKey;
    
@@ -50,14 +54,17 @@ async function displayWeatherData(e) {
 
     try {
         let data = await extractRequiredAppData();
+
+        const temperatureElement = document.createElement('p');
+        temperatureElement.id = "temperature";
+        temperatureElement.textContent = data.temperature + ' F';
+        weatherDataDiv.appendChild(temperatureElement);
         
         const cityElement = document.createElement('h2');
         cityElement.textContent = data.city;
         weatherDataDiv.appendChild(cityElement);
 
-        const temperatureElement = document.createElement('h3');
-        temperatureElement.textContent = data.temperature + 'F';
-        weatherDataDiv.appendChild(temperatureElement);
+        
 
         const weatherConditionElement = document.createElement('p');
         weatherConditionElement.textContent = data.weatherCondition;
@@ -78,3 +85,7 @@ async function displayWeatherData(e) {
     }
     
 }
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    displayWeatherData();
+});
