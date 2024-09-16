@@ -19,7 +19,6 @@ async function getApiWeatherData () {
     } catch (error) {
         throw new Error('No city found');
     }
-
 }
 
 async function extractRequiredAppData () {
@@ -36,7 +35,6 @@ async function extractRequiredAppData () {
 
     return current;
 }
-
 
 async function displayWeatherData(e) {
     e?.preventDefault();
@@ -63,9 +61,7 @@ async function displayWeatherData(e) {
         const cityElement = document.createElement('h2');
         cityElement.textContent = data.city;
         weatherDataDiv.appendChild(cityElement);
-
         
-
         const weatherConditionElement = document.createElement('p');
         weatherConditionElement.textContent = data.weatherCondition;
         weatherDataDiv.appendChild(weatherConditionElement);
@@ -83,7 +79,6 @@ async function displayWeatherData(e) {
         errorMessage.textContent = 'No city found. Please try again.';
         weatherDataDiv.appendChild(errorMessage);
     }
-    
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {

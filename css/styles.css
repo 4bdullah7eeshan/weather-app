@@ -1,13 +1,11 @@
 /* styles.css */
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Amatic SC', cursive;
-
 }
 
 body {
@@ -22,11 +20,22 @@ aside {
     width: 50vw;
     display: flex;
     flex-direction: column;
-    /*background-image: url(https://cdn.pixabay.com/photo/2020/12/20/04/06/man-5846064_1280.jpg);*/
     background-image: url(https://cdn.pixabay.com/photo/2022/08/07/20/28/night-7371349_1280.jpg);
     background-size: cover;
     background-position: center;
     color: white;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+h1 {
+    font-size: 3rem;
 
 }
 
@@ -36,8 +45,6 @@ form {
     align-self: center;
     justify-self: center;
     display: flex;
-    /*justify-content: center;
-    align-items: center;*/
     gap: 1rem;
 }
 
@@ -63,12 +70,22 @@ form button {
     outline: 1px solid white;
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+input {
+    font-size: 1.5rem;
+}
+
+main {
     padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+    align-items: center;
+    width: 50vw;
+    height: 100vh;
+    color: white;
+    background-color: black;
+    outline: 1px solid white;
 }
 
 .weather {
@@ -90,26 +107,14 @@ header {
     color: white;
 }
 
-main {
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5rem;
-    align-items: center;
-    width: 50vw;
-    height: 100vh;
-    
-    color: white;
-    background-color: black;
-    outline: 1px solid white;
-    
-
+#temperature {
+    font-size: 3.5rem;
 }
 
-input {
+main p {
     font-size: 1.5rem;
 }
+
 footer {
     display: flex;
     flex-direction: row;
@@ -121,17 +126,4 @@ footer {
 
 .fab, .fa-github {
     color: white;
-}
-
-#temperature {
-    font-size: 3.5rem;
-}
-
-main p {
-    font-size: 1.5rem;
-}
-
-h1 {
-    font-size: 3rem;
-
 }
