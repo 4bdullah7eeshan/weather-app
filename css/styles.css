@@ -1,37 +1,57 @@
 /* styles.css */
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;700&display=swap');
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Amatic SC', cursive;
 }
 
 body {
     height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     line-height: 1.5;
 }
 
-aside {
+main {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    height: 80vh;
+    outline: 1px solid white;
+    font-family: 'Vollkorn', serif;
+}
+
+#user {
     height: 100%;
     width: 50vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     background-image: url(https://cdn.pixabay.com/photo/2022/08/07/20/28/night-7371349_1280.jpg);
     background-size: cover;
     background-position: center;
     color: white;
+    padding: 0.7rem;
+    background-clip: border-box; /* Clip background to the element's border */
+    overflow: hidden;
+    outline: 1px solid white;
 }
 
 header {
     display: flex;
     justify-content: center;
+    height: 10vh;
     align-items: center;
     text-align: center;
     padding: 0.5rem;
+    outline: 1px solid white;
+    background-color: black;
+    color: white;
+    font-family: 'Amatic SC', cursive;
 }
 
 h1 {
@@ -40,7 +60,6 @@ h1 {
 }
 
 form {
-    margin-top: 1rem;
     flex: 1;
     align-self: center;
     justify-self: center;
@@ -72,9 +91,11 @@ form button {
 
 input {
     font-size: 1.5rem;
+    font-family: 'Vollkorn', serif;
+
 }
 
-main {
+.weather-container {
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -82,7 +103,7 @@ main {
     gap: 5rem;
     align-items: center;
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     color: white;
     background-color: black;
     outline: 1px solid white;
@@ -111,7 +132,7 @@ main {
     font-size: 3.5rem;
 }
 
-main p {
+.weather-container p {
     font-size: 1.5rem;
 }
 
@@ -121,7 +142,13 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
+    background-color: black;
     font-size: 1.3rem;
+    color: white;
+    height: 10vh;
+    outline: 1px solid white;
+    font-family: 'Amatic SC', cursive;
+
 }
 
 .fab, .fa-github {
